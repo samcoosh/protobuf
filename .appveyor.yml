@@ -5,8 +5,8 @@ install:
   - git submodule update --init --recursive
   
 before_build:
-- cmd: cmake -H.\protobuf\cmake -G "Visual Studio 16 2019" -A Win32 -B./build_x86 -DCMAKE_INSTALL_PREFIX=./package_x86 -Dprotobuf_BUILD_TESTS="OFF" -Dprotobuf_BUILD_EXAMPLES="OFF" -Dprotobuf_MSVC_STATIC_RUNTIME="OFF"
-- cmd: cmake -H.\protobuf\cmake -G "Visual Studio 16 2019" -A x64 -B./build_x64 -DCMAKE_INSTALL_PREFIX=./package_x64 -Dprotobuf_BUILD_TESTS="OFF" -Dprotobuf_BUILD_EXAMPLES="OFF" -Dprotobuf_MSVC_STATIC_RUNTIME="OFF"
+- cmd: cmake -H.\protobuf\cmake -G "Visual Studio 16 2019" -A Win32 -B./build_x86 -DCMAKE_INSTALL_PREFIX=./package_x86 -Dprotobuf_BUILD_TESTS="OFF" -Dprotobuf_BUILD_EXAMPLES="OFF"
+- cmd: cmake -H.\protobuf\cmake -G "Visual Studio 16 2019" -A x64 -B./build_x64 -DCMAKE_INSTALL_PREFIX=./package_x64 -Dprotobuf_BUILD_TESTS="OFF" -Dprotobuf_BUILD_EXAMPLES="OFF"
     
 build_script:
 - cmd: cmake --build build_x86 --target INSTALL --config Release
